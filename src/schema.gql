@@ -2,11 +2,11 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type GetUserByIdResponse {
+type GetUserByIdResponseDTO {
   email: String!
   name: String!
 }
 
 type Query {
-  user(id: String!): GetUserByIdResponse
+  user(id: String!): GetUserByIdResponseDTO
 }
