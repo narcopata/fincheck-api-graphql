@@ -75,5 +75,9 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
+  },
+  "_moduleAliases": {
+    "~shared": "./dist/shared/*",
+    "~modules": "./dist/modules/*"
   }
 }
