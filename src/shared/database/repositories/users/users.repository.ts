@@ -11,4 +11,8 @@ export class UsersRepository extends UsersRepositoryAbstract {
   public findUnique: UsersRepositoryAbstract['findUnique'] = (params) => {
     return this.repository.findUnique(params);
   };
+
+  public create: UsersRepositoryAbstract['create'] = (params) => {
+    return this.repository.create(params);
+  };
 }
