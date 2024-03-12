@@ -8,5 +8,26 @@ type GetUserByIdResponseDTO {
 }
 
 type Query {
+  signin(signinDto: SignInInputDTO!): SignInResponseDTO!
+  signup(signupDto: SignUpInputDTO!): SignUpResponseDTO!
   user(id: String!): GetUserByIdResponseDTO
+}
+
+input SignInInputDTO {
+  email: String!
+  password: String!
+}
+
+type SignInResponseDTO {
+  accessToken: String!
+}
+
+input SignUpInputDTO {
+  email: String!
+  name: String!
+  password: String!
+}
+
+type SignUpResponseDTO {
+  accessToken: String!
 }
