@@ -2,12 +2,26 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Category {
+  icon: String!
+  id: String!
+  name: String!
+  type: CategoryTransactionTypes!
+  userId: String!
+}
+
+enum CategoryTransactionTypes {
+  EXPENSE
+  INCOME
+}
+
 type GetUserByIdResponseDTO {
   email: String!
   name: String!
 }
 
 type Query {
+  categories: [Category!]!
   signin(signinDto: SignInInputDTO!): SignInResponseDTO!
   signup(signupDto: SignUpInputDTO!): SignUpResponseDTO!
   user(id: String!): GetUserByIdResponseDTO
