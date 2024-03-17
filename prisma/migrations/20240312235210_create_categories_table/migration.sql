@@ -1,13 +1,13 @@
 -- CreateEnum
-CREATE TYPE "bank_account_type_enum" AS ENUM ('checking', 'investment', 'cash');
+CREATE TYPE "category_transaction_type_enum" AS ENUM ('income', 'expense');
 
 -- CreateTable
 CREATE TABLE "categories" (
     "id" UUID NOT NULL,
     "user_id" UUID NOT NULL,
     "name" TEXT NOT NULL,
-    "initial_balance" DOUBLE PRECISION NOT NULL,
-    "type" "bank_account_type_enum" NOT NULL,
+    "icon" TEXT NOT NULL,
+    "type" "category_transaction_type_enum" NOT NULL,
 
     CONSTRAINT "categories_pkey" PRIMARY KEY ("id")
 );

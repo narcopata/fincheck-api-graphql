@@ -13,30 +13,30 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum BankAccountTypeEnum {
-  checking
-  investment
-  cash
+enum CategoryTransactionTypeEnum {
+  income
+  expense
 
-  @@map("bank_account_type_enum")
+  @@map("category_transaction_type_enum")
 }
 
 model User {
-  id       String     @id @default(uuid()) @db.Uuid
+  id       String @id @default(uuid()) @db.Uuid
   name     String
-  email    String     @unique
+  email    String @unique
   password String
-  Category Category[]
+
+  categories Category[]
 
   @@map("users")
 }
 
 model Category {
-  id             String              @id @default(uuid()) @db.Uuid
-  userId         String              @map("user_id") @db.Uuid
-  name           String
-  initialBalance Float               @map("initial_balance")
-  type           BankAccountTypeEnum
+  id     String                      @id @default(uuid()) @db.Uuid
+  userId String                      @map("user_id") @db.Uuid
+  name   String
+  icon   String
+  type   CategoryTransactionTypeEnum
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
