@@ -19,6 +19,7 @@ import { CategoryModule } from './modules/category/category.module';
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       sortSchema: true,
       plugins: [ApolloServerPluginLandingPageLocalDefault()],
+      context: ({ req, res }) => ({ req, res }),
     }),
     UsersModule,
     AuthModule,
