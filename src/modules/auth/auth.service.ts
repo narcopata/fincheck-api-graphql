@@ -62,6 +62,45 @@ export class AuthService extends AuthServiceAbstract {
       data: {
         ...dto,
         password: hashedPassword,
+        categories: {
+          createMany: {
+            data: [
+              { name: 'Salário', icon: 'salary', type: 'income' },
+              {
+                name: 'Freelance',
+                icon: 'freelance',
+                type: 'income',
+              },
+              { name: 'Outro', icon: 'other', type: 'income' },
+              { name: 'Casa', icon: 'home', type: 'expense' },
+              { name: 'Alimentação', icon: 'food', type: 'expense' },
+              {
+                name: 'Educação',
+                icon: 'education',
+                type: 'expense',
+              },
+              { name: 'Lazer', icon: 'fun', type: 'expense' },
+              { name: 'Mercado', icon: 'grocery', type: 'expense' },
+              { name: 'Roupas', icon: 'clothes', type: 'expense' },
+              {
+                name: 'Transporte',
+                icon: 'transport',
+                type: 'expense',
+              },
+              { name: 'Viagem', icon: 'travel', type: 'expense' },
+              { name: 'Outro', icon: 'other', type: 'expense' },
+            ],
+          },
+        },
+      },
+      include: {
+        categories: {
+          select: {
+            type: true,
+            name: true,
+            icon: true,
+          },
+        },
       },
     });
 
